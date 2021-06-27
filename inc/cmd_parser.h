@@ -59,7 +59,7 @@ typedef struct
 typedef struct 
 {
     pfUserprint pUserprintFunc;     /**< Function pointer to print function , to be obtained from end application and armed during init */
-    sCmd_t* pCmdTbl;                /**< Pointer to command table, Initialized at init */
+    const sCmd_t* pCmdTbl;                /**< Pointer to command table, Initialized at init */
     uint8_t numCmd;                 /**< Number of commands in command table pointed by pCmdTbl*/
 
     char Buf[CMD_MAX_BUF_SIZE];     /**< Buffer for incoming data, filled by cmdParserInput*/

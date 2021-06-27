@@ -23,7 +23,7 @@ ex send add#5#6 to add 5 and 6, (assuming the delim is set to #) \r\n"; /**< Hel
 /**
  * @brief Addition function for demonstration
  * 
- * @param argc Number of arguements
+ * @param argc Number of arguments
  * @param argv array of pointers to arguments
  * @return eCLIStatus_t return E_SUCCESS on success
  * @note User will have to retain the same function signature of arc,**argv
@@ -42,7 +42,7 @@ eCLIStatus_t func_add(uint8_t argc,char** argv)
 /**
  * @brief subtraction function for demonstration
  * 
- * @param argc Number of arguements
+ * @param argc Number of arguments
  * @param argv array of pointers to arguments
  * @return eCLIStatus_t return E_SUCCESS on success
  * @note User will have to retain the same function signature of arc,**argv
@@ -65,7 +65,7 @@ eCLIStatus_t func_sub(uint8_t argc,char** argv)
 /**
  * @brief Multiplication function for demonstration
  * 
- * @param argc Number of arguements
+ * @param argc Number of arguments
  * @param argv array of pointers to arguments
  * @return eCLIStatus_t return E_SUCCESS on success
  * @note User will have to retain the same function signature of arc,**argv
@@ -85,7 +85,7 @@ eCLIStatus_t func_mul(uint8_t argc,char** argv)
 /**
  * @brief List all commands
  * 
- * @param argc Number of arguements
+ * @param argc Number of arguments
  * @param argv array of pointers to arguments
  * @return eCLIStatus_t 
  */
@@ -123,11 +123,11 @@ eCLIStatus_t func_help(uint8_t argc,char** argv)
 }
 
 /**
- * @brief gCmdTble is an array of \ref sCmd_t srructs that will contain commands and function pointers
+ * @brief gCmdTble is an array of \ref sCmd_t structs that will contain commands and function pointers
  * 
  * @note: This table will be updated by the user with pairs of function names and function pointers
  */
-sCmd_t gCmdTble[] = 
+static const sCmd_t gCmdTble[] = 
 {
     {
         .cmdName = (char*)"list" ,

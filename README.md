@@ -7,7 +7,7 @@ CLI Interface                        {#mainpage}
 
 1. Source files are present in @ref Src
 2. Interface files are present in @ref inc
-3. PLease refer doxygen generated HTML documentaion in the Doc/html subfolder for implementation details
+3. PLease refer doxygen generated HTML documentation in the Doc/html subfolder for implementation details
 4. The function entry point @ref Main.c
 
 **Usage**
