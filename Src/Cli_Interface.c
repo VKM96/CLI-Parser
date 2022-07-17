@@ -222,13 +222,13 @@ void CliMockStream()
     char temp[50] ;
     uint8_t i = 0;
 
-    scanf("%s",temp);
+    scanf("%49s",temp);
 
     while('\0' != temp[i])
     {
         status = cmdParserInput(pgCLIHandler,temp[i++]);
     }
-    status = cmdParserInput(pgCLIHandler,'\n');
+    cmdParserInput(pgCLIHandler,'\n') ; 
 
     if(status != E_SUCCESS)
     {

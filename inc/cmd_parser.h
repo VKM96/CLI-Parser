@@ -70,8 +70,8 @@ typedef struct
 
 }sCLI_t;
 
-eCLIStatus_t cmdParserInit(sCLI_t*  pCLIHandle , pfUserprint pUserPrint);
-eCLIStatus_t cmdParserProcess(sCLI_t* pCLIHandle);
-eCLIStatus_t cmdParserInput(sCLI_t* pCLIHandle,const char inputChar);
+eCLIStatus_t cmdParserInit(sCLI_t*  const pCLIHandle , pfUserprint pUserPrint);
+eCLIStatus_t cmdParserProcess(sCLI_t* const pCLIHandle);
+eCLIStatus_t cmdParserInput(sCLI_t* const pCLIHandle,const char inputChar);
 
 #endif

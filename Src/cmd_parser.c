@@ -25,7 +25,7 @@ static const char* CLI_TERMINAL = ">> " ;                                       
  * 
  * @param pCLIHandle Handle to CLI structure whose buf will be reset to head
  */
-static void CmdBufReset(sCLI_t* pCLIHandle )
+static void CmdBufReset(sCLI_t* const pCLIHandle )
 {
     pCLIHandle->pBuf = pCLIHandle->Buf ;
 }
@@ -35,7 +35,7 @@ static void CmdBufReset(sCLI_t* pCLIHandle )
  * 
  * @param pCLIHandle Handle to CLI structure whose cmdbuf will be reset to head
  */
-static void CmdCmdBufReset(sCLI_t*  pCLIHandle )
+static void CmdCmdBufReset(sCLI_t* const pCLIHandle )
 {
     pCLIHandle->PCmdBuf = pCLIHandle->CmdBuf;
 }
@@ -45,7 +45,7 @@ static void CmdCmdBufReset(sCLI_t*  pCLIHandle )
  * 
  * @param pCLIHandle 
  */
-static void CmdFlushCmdBuf(sCLI_t*  pCLIHandle )
+static void CmdFlushCmdBuf(sCLI_t* const pCLIHandle )
 {
     memset(pCLIHandle->CmdBuf,'\0',CMD_MAX_CMD_SIZE);
 }
@@ -55,7 +55,7 @@ static void CmdFlushCmdBuf(sCLI_t*  pCLIHandle )
  * 
  * @param pCLIHandle 
  */
-static void CmdFlushBuf(sCLI_t*  pCLIHandle )
+static void CmdFlushBuf(sCLI_t* const pCLIHandle )
 {
     memset(pCLIHandle->Buf,'\0',CMD_MAX_BUF_SIZE);
 }
@@ -67,7 +67,7 @@ static void CmdFlushBuf(sCLI_t*  pCLIHandle )
  * @param str 
  * @param len 
  */
-static void CmdOut(sCLI_t*  pCLIHandle , const char* str , uint8_t len )
+static void CmdOut(sCLI_t* const pCLIHandle , const char* str , uint8_t len )
 {
     pCLIHandle->pUserprintFunc(str,len);
 }
@@ -75,11 +75,11 @@ static void CmdOut(sCLI_t*  pCLIHandle , const char* str , uint8_t len )
 /**
  * @brief Init function for the command parser
  * 
- * @param pCLIHandle handle to the CLI structure that needs to be insitalised
+ * @param pCLIHandle handle to the CLI structure that needs to be initialized
  * @param pUserPrint Print function to be used by CLI
  * @return eCLIStatus_t status of init : E_SUCCESS on success \see eCLIStatus_t
  */
-eCLIStatus_t cmdParserInit(sCLI_t*  pCLIHandle , pfUserprint pUserPrint)
+eCLIStatus_t cmdParserInit(sCLI_t* const pCLIHandle , pfUserprint pUserPrint)
 {
     CmdBufReset(pCLIHandle);
 
@@ -98,10 +98,11 @@ eCLIStatus_t cmdParserInit(sCLI_t*  pCLIHandle , pfUserprint pUserPrint)
  * 
  * @param pCLIHandle Handle to CLI structure whose buffer will be parsed by this function
  * @return eCLIStatus_t status : return E_SUCCESS on success
+ * @todo argc needs to be bounds checked
  */
-eCLIStatus_t cmdParserProcess(sCLI_t* pCLIHandle)
+eCLIStatus_t cmdParserProcess(sCLI_t* const pCLIHandle)
 {
-    eCLIStatus_t status;
+    eCLIStatus_t status = E_SUCCESS;
 
     uint8_t argc = 0;
     char *argv[CMD_MAX_PARAMS] ;
@@ -143,14 +144,14 @@ eCLIStatus_t cmdParserProcess(sCLI_t* pCLIHandle)
 /**
  * @brief Function that fills up the buffer of the CLI
  * 
- * @param pCLIHandle Handle to CLI structure whose nufer needs to be filled
+ * @param pCLIHandle Handle to CLI structure whose buffer needs to be filled
  * @param inputChar character to be filled inside buffer of pCLIHandle
  * @return eCLIStatus_t status : return E_SUCCESS on success
- * @note This function is to be called from the function that recives input from the user
+ * @note This function is to be called from the function that receives input from the user
  * scanf is used for demonstration purposes, it will be called by an interrupt in e,bedded applications
  * 
  */
-eCLIStatus_t cmdParserInput(sCLI_t* pCLIHandle,const char inputChar)
+eCLIStatus_t cmdParserInput(sCLI_t* const pCLIHandle, const char inputChar)
 {
     eCLIStatus_t status = E_FAIL;
 
